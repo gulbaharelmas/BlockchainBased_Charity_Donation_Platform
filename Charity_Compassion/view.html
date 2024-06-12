@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="compaigns.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <link rel="stylesheet" href="home.css" />
+    <link rel="icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.5/dist/ethers.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ethers@5.0.5/dist/ethers.esm.min.js"></script>
+    <script type="module" src="c2.js" defer></script>
+    <script src="walletIntegration.js" defer></script>
+    <script type="module" src="demo2.js" defer></script>
+    <script type="module" src="donation.js"></script>
+    <script type="module" src="compaigns.js"></script>
+    <title>View Campaign</title>
+    <script type="module">
+        import { connectWalletAndDonate } from "./c4.js";
+        // Bağış yapma fonksiyonunu çağırmak için düğmeye tıklanma olayını dinleyin
+        document.getElementById("donateButton5").addEventListener("click", connectWalletAndDonate);
+        
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <h1> <img src="/images/blockchainlogo.png" alt="" width="200" style="margin-left: 20px;"></h1>
+        </div>
+        <div class="header-links">
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="compaigns.html">Campaigns</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="campaign-details" id="campaign-details">
+        <!-- Campaign details will be loaded here dynamically -->
+    </div>
+    
+    
+    <!-- Ionicons icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <script type="module">
+                 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+            import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+            import { connectWalletAndDonate } from "./c4.js";
+        
+  
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA_h2ixVeVaAHxjxylMWh3m6ekkz2F1hnU",
+    authDomain: "smartcontract-3ea13.firebaseapp.com",
+    databaseURL: "https://smartcontract-3ea13-default-rtdb.firebaseio.com/",
+    projectId: "smartcontract-3ea13",
+    storageBucket: "smartcontract-3ea13.appspot.com",
+    messagingSenderId: "445358902182",
+    appId: "1:445358902182:web:561a7f367db8e2ceca5d67"
+  };
+        
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        
+        let aboutText = '';
+
+        // Fetch the "About" information
+        const aboutTextRef = ref(db, 'about/info');
+        onValue(aboutTextRef, (snapshot) => {
+            aboutText = snapshot.val();
+        });
+
+        // Fetch campaign details and include "About" information
+        onValue(ref(db, 'campaign'), (snapshot) => {
+            const campaignDetailsContainer = document.getElementById('campaign-details');
+            campaignDetailsContainer.innerHTML = ''; // Clear existing content
+            snapshot.forEach((childSnapshot) => {
+                const campaign = childSnapshot.val();
+                const campaignElement = document.createElement('div');
+                campaignElement.className = 'campaign-entry'; // CSS class for styling
+                campaignElement.innerHTML = `
+                    <section class="c4" id="c4">
+                        <h3>Organization:</h3>
+                        <a href="#">${campaign.organization}</a>
+                        <h1>Company Name: ${campaign.campaignName}</h1>
+                        <img src="${campaign.photo}" width="100%" height="100%" />
+                        <h2>Description of company:</h2>
+                        <p>${campaign.description}</p>
+                        <div class="progressbar-text">GOAL ! <span id="c4-progress-text">%</span></div>
+                        <div>
+                            <svg id="c4-progress-bar" viewBox="0 0 100 2" preserveAspectRatio="none" style="display: block; width: 100%;">
+                                <path id="background" d="M 0,1 L 100,1" stroke="#1F1F1F" stroke-width="2" fill-opacity="0"></path>
+                                <path id="c4-progress" d="M 0,1 L 100,1" stroke="#6FCF97" stroke-width="2" fill-opacity="0" style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+                            </svg>
+                        </div>
+                        <div class="text-light">
+                            <span id="c4-goalAndRaised"> </span>
+                        </div>
+                        <div class="buttonContainer">
+                            <div class="donateButton"> 
+                                <button id="donateButton5">Donate</button>     
+                            </div>
+                            <div class="viewButton">
+                                <button onclick="redirectToView()">View</button>   
+                            </div>
+                        </div>
+                        <div class="socialMedia">
+                            <label><ion-icon name="share-social-outline"></ion-icon>Share This Project</label>
+                            <div class="socialMediaContainer">
+                                <a href="https://www.facebook.com/?locale=tr_TR"><ion-icon name="logo-facebook"></ion-icon></a>
+                                <a href="https://twitter.com/login?lang=tr"><ion-icon name="logo-twitter"></ion-icon></a>
+                                <a href="https://www.instagram.com/"><ion-icon name="logo-instagram"></ion-icon></a>
+                            </div>
+                        </div>
+                        <section class="info">
+                            <div class="about">
+                                <h3>About</h3>
+                                <p>${campaign.about}</p>
+                            </div>
+                            <div class="map">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d483983.0735578532!2d28.632995314960547!3d41.00550088652151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5b50470eb45%3A0x9ea2de14d298ff3e!2sIstanbul%2C%20Turkey!5e0!3m2!1sen!2sus!4v1635498220157!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        </section>
+                    </section>
+                `;
+
+                campaignDetailsContainer.appendChild(campaignElement);
+                document.getElementById("donateButton5").addEventListener("click", connectWalletAndDonate);
+
+            });
+        });
+    </script>
+        <section class="transaction">
+            <h2 class="transaction-category">Top Donations</h2>
+            <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
+            <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
+            <section class="transaction-container">
+                <!-- Top donations için burada kartlar olacak -->
+            </section>
+        </section>
+        <section>
+            <h2 class="Total">Total Donations</h2>
+            <div id="veriListesi"></div>
+        </section>
+        <footer class="bahar">GreenPeace | World Heald Organization | World Wide Fund For Nature | Unicef</footer>
+</body>
+</html>

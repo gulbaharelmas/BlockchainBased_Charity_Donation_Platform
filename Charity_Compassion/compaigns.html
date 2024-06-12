@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="compaigns.css" />
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <script src="compaigns.js" defer></script>
+   <!-- <script type="module" src="processBar.js" defer></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.5/dist/ethers.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ethers@5.0.5/dist/ethers.esm.min.js"></script>
+    <script type="module" src="c1.js" defer></script>
+    <script type="module" src="c2.js" defer></script>
+    <script type="module" src="c3.js" defer></script>
+   <script type="module" src="c4.js" defer></script>
+   <script src="walletIntegration.js" defer></script>
+   
+    <script type="module" src="donation.js"></script>
+    <script type="modul" src="//www.gstatic.com/firebasejs/10.11.1/firebase-app.js"></script>
+    <script type="modul" src="https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js"></script>
+    <script type="module">
+        import { connectWalletAndDonate } from "./c1.js";
+        // Bağış yapma fonksiyonunu çağırmak için düğmeye tıklanma olayını dinleyin
+        document.getElementById("donateButton1").addEventListener("click", connectWalletAndDonate);
+    </script>
+    <script type="module">
+        import { connectWalletAndDonate } from "./c2.js";
+        // Bağış yapma fonksiyonunu çağırmak için düğmeye tıklanma olayını dinleyin
+        document.getElementById("donateButton2").addEventListener("click", connectWalletAndDonate);
+    </script>
+    <script type="module">
+        import { connectWalletAndDonate } from "./c3.js";
+        // Bağış yapma fonksiyonunu çağırmak için düğmeye tıklanma olayını dinleyin
+        document.getElementById("donateButton3").addEventListener("click", connectWalletAndDonate);
+    </script>
+    <script type="module">
+        import { connectWalletAndDonate } from "./c4.js";
+        // Bağış yapma fonksiyonunu çağırmak için düğmeye tıklanma olayını dinleyin
+        document.getElementById("donateButton4").addEventListener("click", connectWalletAndDonate);
+    </script>
+      <script type="module">
+        import { connectWalletAndDonate } from "./c4.js";
+        // Bağış yapma fonksiyonunu çağırmak için düğmeye tıklanma olayını dinleyin
+        document.getElementById("donateButton5").addEventListener("click", connectWalletAndDonate);
+    </script>
+
+
+    <title>Blckchain Based Charity Donation - Company Page</title>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <h1> <img src="/images/blockchainlogo.png" alt="" width="200" style="margin-left: 20px;"></h1>
+        </div>
+        <div class="header-links">
+            <nav>
+                <ul>
+                    <li><a href="homepage.html">Home</a></li>
+                    <li><a href="compaigns.html">Campaigns</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="companies">
+        <h1>Our Companies</h1>
+        <script type="module">
+              import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+            import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+            import { connectWalletAndDonate } from "./c4.js";
+        
+  
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA_h2ixVeVaAHxjxylMWh3m6ekkz2F1hnU",
+    authDomain: "smartcontract-3ea13.firebaseapp.com",
+    databaseURL: "https://smartcontract-3ea13-default-rtdb.firebaseio.com/",
+    projectId: "smartcontract-3ea13",
+    storageBucket: "smartcontract-3ea13.appspot.com",
+    messagingSenderId: "445358902182",
+    appId: "1:445358902182:web:561a7f367db8e2ceca5d67"
+  };
+        
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getDatabase(app);
+        
+            // Fetch and display campaigns
+            onValue(ref(db, 'campaign'), (snapshot) => {
+                const campaignsContainer = document.querySelector('.firebase-campaigns');
+                campaignsContainer.innerHTML = ''; // Clear existing content
+                snapshot.forEach((childSnapshot) => {
+                    const campaign = childSnapshot.val();
+                    const campaignId = childSnapshot.key;
+                    const progressPercent = Math.min(100, (campaign.raised / campaign.goal) * 100); // Calculate progress
+                    const campaignElement = document.createElement('div');
+                    campaignElement.className = 'campaign-entry'; // CSS class for styling
+                    campaignElement.innerHTML = `
+                    <section class="c4" id="c4">
+                        <h3>Organization:</h3>
+                        <a href="#">${campaign.organization}</a>
+                        <h1>Company Name: ${campaign.campaignName}</h1>
+                        <img src="${campaign.photo}" width="100%" height="100%" />
+                        <h2>Description of company:</h2>
+                        <p>${campaign.description}</p>
+                        <div class="progressbar-text">GOAL ! <span id="c4-progress-text">%</span></div>
+                        <div>
+                            <svg id="c4-progress-bar" viewBox="0 0 100 2" preserveAspectRatio="none" style="display: block; width: 100%;">
+                                <path id="background" d="M 0,1 L 100,1" stroke="#1F1F1F" stroke-width="2" fill-opacity="0"></path>
+                                <path id="c4-progress" d="M 0,1 L 100,1" stroke="#6FCF97" stroke-width="2" fill-opacity="0" style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+                            </svg>
+                        </div>
+                        <div class="text-light">
+                            <span id="c4-goalAndRaised"> </span>
+                        </div>
+                        <div class="buttonContainer">
+                            <div class="donateButton"> 
+                                <button id="donateButton5">Donate</button>     
+                            </div>
+                            <div class="viewButton">
+                                <button onclick="redirectToView()">View</button>   
+                            </div>
+                        </div>
+                        <div class="socialMedia">
+                            <label><ion-icon name="share-social-outline"></ion-icon>Share This Project</label>
+                            <div class="socialMediaContainer">
+                                <a href="https://www.facebook.com/?locale=tr_TR"><ion-icon name="logo-facebook"></ion-icon></a>
+                                <a href="https://twitter.com/login?lang=tr"><ion-icon name="logo-twitter"></ion-icon></a>
+                                <a href="https://www.instagram.com/"><ion-icon name="logo-instagram"></ion-icon></a>
+                            </div>
+                        </div>
+                        
+                    </section>
+                `;
+                    campaignsContainer.appendChild(campaignElement);
+                    document.getElementById("donateButton5").addEventListener("click", connectWalletAndDonate);
+                });
+            });
+        
+            function redirectToView() {
+                // Redirect logic here
+            }
+        </script>
+        <section class="c1" id="c1">
+            <div>
+                <h3>Organization:</h3>
+                <a href="https://www.unicef.org/turkiye/">UNICEF</a>
+            </div>
+            <h1>Company Name: YOUR REGULAR DONATION SAVES LIVES</h1>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_UNICEF.svg/2560px-Logo_of_UNICEF.svg.png" width="100%" height="100%" />
+
+            <h2>Description of company:</h2>
+            <p>Today, millions of children in the world are deprived of their basic rights due to wars and disasters. Millions of children are under threat of deadly hunger; Every 15 seconds a child dies because of not being fed. Approximately 15,000 children die every day from preventable causes. One in every four children lives in areas affected by wars or disasters. As in the earthquakes that took place in Turkey on February 6, millions of children suddenly become in need of urgent humanitarian aid. Every child has the right to grow up healthy, live their childhood, and have equal opportunities with their peers! </p>
+            
+            <div class="progressbar-text">GOAL ! <span id="c1-progress-text">%</span></div>
+            <div>
+                <svg id="c1-progress-bar" viewBox="0 0 100 2" preserveAspectRatio="none" style="display: block; width: 100%;">
+                    <path id="background" d="M 0,1 L 100,1" stroke="#1F1F1F" stroke-width="2" fill-opacity="0"></path>
+                    <path id="c1-progress" d="M 0,1 L 100,1" stroke="#6FCF97" stroke-width="2" fill-opacity="0" style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+                </svg>
+            </div>
+            <div class="text-light">
+                <span id="c1-goalAndRaised"> </span>
+            </div>
+
+            <div class="buttonContainer">
+                <div class="donateButton"> 
+                    <button id="donateButton1">Donate</button>   
+    
+                </div>
+                <div class="viewButton">
+                 <button onclick="redirectToComp1()">View</button>   
+                </div>
+                
+            </div>
+            
+            
+            <div class="socialMedia">
+                <label><ion-icon name="share-social-outline"></ion-icon>Share This Project</label>
+                <div class="socialMediaContainer">
+                    <a href="https://www.facebook.com/?locale=tr_TR"
+                     ><ion-icon name="logo-facebook"></ion-icon
+                    ></a>
+                    <a href="https://twitter.com/login?lang=tr"
+                        ><ion-icon name="logo-twitter"></ion-icon
+                    ></a>
+                    <a href="https://www.instagram.com/"
+                        ><ion-icon name="logo-instagram"></ion-icon
+                    ></a>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="c2" id="c2">
+            <div>
+                <h3>Organization:</h3>
+                <a href="https://www.worldwildlife.org/">Word Wildlife</a>
+            </div>
+            <h1>Company Name: Give an Hour for Earth </h1>
+            <img src="https://c.files.bbci.co.uk/A1FC/production/_105886414_mediaitem105886410.jpg" width="100%" height="100%" />
+
+            <h2>Description of company:</h2>
+            <p>Nature provides the air we breathe, the water we drink, and countless other vital resources. But the future of nature is uncertain; we're losing forests, wildlife, freshwater, and more at an unprecedented rate. While it’s easy to feel overwhelmed by these issues, we have the power to make a change.
+
+                Whether you take part in one of the many Hour Bank activities or join landmarks across the globe in turning off your lights in celebration of Earth Hour like the Empire State Building and the Colosseum, you can help the US reach our goal of more than 100,000 hours given for Earth by Earth Day, April 22, 2024. </p>
+           
+                <div class="progressbar-text">GOAL ! <span id="c2-progress-text">%</span></div>
+            <div>
+                <svg id="c2-progress-bar" viewBox="0 0 100 2" preserveAspectRatio="none" style="display: block; width: 100%;">
+                    <path id="background" d="M 0,1 L 100,1" stroke="#1F1F1F" stroke-width="2" fill-opacity="0"></path>
+                    <path id="c2-progress" d="M 0,1 L 100,1" stroke="#6FCF97" stroke-width="2" fill-opacity="0" style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+                </svg>
+            </div>
+            <div class="text-light">
+                <span id="c2-goalAndRaised"> </span>
+            </div>
+
+            <div class="buttonContainer">
+                <div class="donateButton"> 
+                    <button id="donateButton2">Donate</button>
+                </div>
+                <div class="viewButton">
+                 <button onclick="redirectToComp2()">View</button>   
+                </div>
+                
+            </div>
+            
+            <div class="socialMedia">
+                <label><ion-icon name="share-social-outline"></ion-icon>Share This Project</label>
+                <div class="socialMediaContainer">
+                    <a href="https://www.facebook.com/?locale=tr_TR"
+                     ><ion-icon name="logo-facebook"></ion-icon
+                    ></a>
+                    <a href="https://twitter.com/login?lang=tr"
+                        ><ion-icon name="logo-twitter"></ion-icon
+                    ></a>
+                    <a href="https://www.instagram.com/"
+                        ><ion-icon name="logo-instagram"></ion-icon
+                    ></a>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="c3" id="c3">
+            <div>
+                <h3>Organization:</h3>
+                <a href="https://www.who.int/">WHO (World Health Organization)</a>
+            </div>
+            <h1>Company Name:75 years of improving public health </h1>
+            <img src="https://www.un.org/youthenvoy/wp-content/uploads/2014/09/WHO.jpg" width="100%" height="100%" />
+    
+            <h2>Description of company:</h2>
+            <p>On 7 April 2023  ̶  World Health Day  ̶  the World Health Organization will observe its 75th anniversary.
+    
+                In 1948, countries of the world came together and founded WHO to promote health, keep the world safe and serve the vulnerable – so everyone, everywhere can attain the highest level of health and well-being.   
+                
+                WHO’s 75th anniversary year is an opportunity to look back at public health successes that have improved quality of life during the last seven decades. It is also an opportunity to motivate action to tackle the health challenges of today  ̶  and tomorrow.  
+                
+                Join WHO on a journey to achieve Health For All.
+                
+                #HealthForAll   #WHO75</p>
+           
+            <div class="progressbar-text">GOAL ! <span id="c3-progress-text">%</span></div>
+            <div>
+                <svg id="c3-progress-bar" viewBox="0 0 100 2" preserveAspectRatio="none" style="display: block; width: 100%;">
+                    <path id="background" d="M 0,1 L 100,1" stroke="#1F1F1F" stroke-width="2" fill-opacity="0"></path>
+                    <path id="c3-progress" d="M 0,1 L 100,1" stroke="#6FCF97" stroke-width="2" fill-opacity="0" style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+                </svg>
+            </div>
+            <div class="text-light">
+                <span id="c3-goalAndRaised"> </span>
+            </div>
+
+            <div class="buttonContainer">
+                <div class="donateButton"> 
+                    <button id="donateButton3">Donate</button>   
+                </div>
+                <div class="viewButton">
+                 <button onclick="redirectToComp3()">View</button>   
+                </div>
+                
+            </div>
+            
+            <div class="socialMedia">
+                <label><ion-icon name="share-social-outline"></ion-icon>Share This Project</label>
+                <div class="socialMediaContainer">
+                    <a href="https://www.facebook.com/?locale=tr_TR"
+                     ><ion-icon name="logo-facebook"></ion-icon
+                    ></a>
+                    <a href="https://twitter.com/login?lang=tr"
+                        ><ion-icon name="logo-twitter"></ion-icon
+                    ></a>
+                    <a href="https://www.instagram.com/"
+                        ><ion-icon name="logo-instagram"></ion-icon
+                    ></a>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="c4" id="c4">
+            <div>
+                <h3>Organization:</h3>
+                <a href="https://www.greenpeace.org/international/">Greenpeace</a>
+            </div>
+            <h1>Company Name: Help Greenpeace protect the planet </h1>
+            <img src="https://www.greenpeace.org/turkey/wp-content/themes/planet4-master-theme/images/Greenpeace-logo.png" width="100%" height="100%" />
+
+            <h2>Description of company:</h2>
+            <p>Imagine a world where forests flourish and oceans are full of life. Where energy is as clean as a mountain stream. Where everyone has security, dignity and joy. We can’t build this future alone, but we can build it together.
+                For more than 50 years, Greenpeace has been sailing the world’s oceans protecting our planet and fighting for environmental justice. </p>
+            
+            <div class="progressbar-text">GOAL ! <span id="c4-progress-text">%</span></div>
+            <div>
+                <svg id="c4-progress-bar" viewBox="0 0 100 2" preserveAspectRatio="none" style="display: block; width: 100%;">
+                    <path id="background" d="M 0,1 L 100,1" stroke="#1F1F1F" stroke-width="2" fill-opacity="0"></path>
+                    <path id="c4-progress" d="M 0,1 L 100,1" stroke="#6FCF97" stroke-width="2" fill-opacity="0" style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+                </svg>
+            </div>
+            <div class="text-light">
+                <span id="c4-goalAndRaised"> </span>
+            </div>
+
+            <div class="buttonContainer">
+                <div class="donateButton"> 
+                    <button id="donateButton4">Donate</button>     
+                </div>
+                <div class="viewButton">
+                 <button onclick="redirectToComp4()">View</button>   
+                </div>
+                
+            </div>
+            
+            <div class="socialMedia">
+                <label><ion-icon name="share-social-outline"></ion-icon>Share This Project</label>
+                <div class="socialMediaContainer">
+                    <a href="https://www.facebook.com/?locale=tr_TR"
+                     ><ion-icon name="logo-facebook"></ion-icon
+                    ></a>
+                    <a href="https://twitter.com/login?lang=tr"
+                        ><ion-icon name="logo-twitter"></ion-icon
+                    ></a>
+                    <a href="https://www.instagram.com/"
+                        ><ion-icon name="logo-instagram"></ion-icon
+                    ></a>
+
+                </div>
+            </div>
+        </section>
+        
+
+               <!-- Firebase'den çekilen kampanyalar buraya eklenecek -->
+               <div class="firebase-campaigns"></div>
+    </div>
+    
+    <footer class="bahar">GreenPeace | World Heald Organization | World Wide Fund For Nature | Unicef</footer>
+
+
+         <!-- Ionicons ikonları için gerekli script -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+ 
+</body>
+</html>

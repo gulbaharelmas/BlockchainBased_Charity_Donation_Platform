@@ -1,0 +1,19 @@
+.progressbar-text {
+    color: rgb(111, 207, 151);
+    right: 0px;
+    top: -30px;
+    padding: 0px;
+    margin: 0px;
+}
+.campaign-list {
+    display: flex;
+}
+
+.admin-form {
+    flex: 1;
+    margin-right: 20px; /* Form ile mevcut kampanyalar arasında boşluk bırakmak için */
+}
+
+.current-campaigns {
+    flex: 1;
+}

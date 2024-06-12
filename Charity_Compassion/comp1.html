@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="compaigns.css" />
+    <link rel="stylesheet" href="home.css">
+    <link rel="icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <script src="compaigns.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <!--<script src="processBar.js" defer></script>-->
+    <script type="module" src="c1.js" defer></script>
+    <script src="walletIntegration.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.5/dist/ethers.min.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ethers@5.0.5/dist/ethers.esm.min.js"></script>
+    <script type="module" src="donation.js"></script>
+    <script type="module">
+        import { connectWalletAndDonate } from "./c1.js";
+        // Bağış yapma fonksiyonunu çağırmak için düğmeye tıklanma olayını dinleyin
+        document.getElementById("donateButton1").addEventListener("click", connectWalletAndDonate);
+    </script>
+    <title>Unicef</title>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <h1> <img src="/images/blockchainlogo.png" alt="" width="200" style="margin-left: 20px;"></h1>
+        </div>
+        <div class="header-links">
+            <nav>
+                <ul>
+                    <li><a href="homepage.html">Home</a></li>
+                    <li><a href="compaigns.html">Campaigns</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="c1" id="c1">
+        <div>
+            <h3>Organization:</h3>
+            <a href="https://www.unicef.org/turkiye/">UNICEF</a>
+        </div>
+        <h1>Company Name: YOUR REGULAR DONATION SAVES LIVES</h1>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Logo_of_UNICEF.svg/2560px-Logo_of_UNICEF.svg.png" width="100%" height="100%" />
+
+        <h2>Description of company:</h2>
+        <p>Today, millions of children in the world are deprived of their basic rights due to wars and disasters. Millions of children are under threat of deadly hunger; Every 15 seconds a child dies because of not being fed. Approximately 15,000 children die every day from preventable causes. One in every four children lives in areas affected by wars or disasters. As in the earthquakes that took place in Turkey on February 6, millions of children suddenly become in need of urgent humanitarian aid. Every child has the right to grow up healthy, live their childhood, and have equal opportunities with their peers! </p>
+        <div class="progressbar-text">GOAL ! <span id="c1-progress-text">%</span></div>
+        <div>
+            <svg id="c1-progress-bar" viewBox="0 0 100 2" preserveAspectRatio="none" style="display: block; width: 100%;">
+                <path id="background" d="M 0,1 L 100,1" stroke="#1F1F1F" stroke-width="2" fill-opacity="0"></path>
+                <path id="c1-progress" d="M 0,1 L 100,1" stroke="#6FCF97" stroke-width="2" fill-opacity="0" style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+            </svg>
+        </div>
+        <div class="text-light">
+            <span id="c1-goalAndRaised"> </span>
+        </div>
+
+        
+
+        <div class="buttonContainer">
+            <div class="donateButton"> 
+                <button id="donateButton1">Donate</button>   
+
+            </div>
+            <div class="viewButton">
+             <button onclick="redirectToComp1()">View</button>   
+            </div>
+            
+        </div>
+        
+        
+        <div class="socialMedia">
+            <label><ion-icon name="share-social-outline"></ion-icon>Share This Project</label>
+            <div class="socialMediaContainer">
+                <a href="https://www.facebook.com/?locale=tr_TR"
+                 ><ion-icon name="logo-facebook"></ion-icon
+                ></a>
+                <a href="https://twitter.com/login?lang=tr"
+                    ><ion-icon name="logo-twitter"></ion-icon
+                ></a>
+                <a href="https://www.instagram.com/"
+                    ><ion-icon name="logo-instagram"></ion-icon
+                ></a>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="info">
+        <div class="about">
+            <h3>About Unicef</h3>
+            <p>UNICEF works in over 190 countries and territories to protect the rights of every child.
+                UNICEF works in the world’s toughest places to reach the most disadvantaged children and adolescents – and to protect the rights of every child, everywhere. Across more than 190 countries and territories, we do whatever it takes to help children survive, thrive and fulfill their potential, from early childhood through adolescence. 
+                
+                The world’s largest provider of vaccines, we support child health and nutrition, safe water and sanitation, quality education and skill building, HIV prevention and treatment for mothers and babies, and the protection of children and adolescents from violence and exploitation.
+                
+                Before, during and after humanitarian emergencies, UNICEF is on the ground, bringing lifesaving help and hope to children and families. Non-political and impartial, we are never neutral when it comes to defending children’s rights and safeguarding their lives and futures. 
+                
+                And we never give up.  </p>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d483983.0735578532!2d28.632995314960547!3d41.00550088652151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5b50470eb45%3A0x9ea2de14d298ff3e!2sIstanbul%2C%20Turkey!5e0!3m2!1sen!2sus!4v1635498220157!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section class="transaction">
+        <h2 class="transaction-category">Top Donations</h2>
+        <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
+        <section class="transaction-container">
+            <!-- Top donations için burada kartlar olacak -->
+        </section>
+    </section>
+    <section>
+        <h2 class="Total">Total Donations</h2>
+        <div id="veriListesi"></div>
+    </section>
+
+    <script src="demo1.js"></script>
+
+          <!-- Ionicons ikonları için gerekli script -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <footer class="bahar">GreenPeace | World Heald Organization | World Wide Fund For Nature | Unicef</footer>
+</body>
+</html>

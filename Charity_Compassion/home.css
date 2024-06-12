@@ -1,0 +1,208 @@
+
+.desktop-1 {
+  margin-top: 101px; /* Header ile grup-1 arasında 1px boşluk oluşturmak için 1px artırıldı */
+  padding-top: 100px; /* Header'ın üzerindeki yazının görünmesini sağlamak için artırıldı */
+  padding-bottom: 50px; /* Footer ile çakışmaması için */
+ background: #FFFFFF;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ padding: 32.8rem 4.4rem 25.9rem 4.3rem;
+ width: 90rem;
+ box-sizing: border-box;
+ 
+}
+header {
+   display: flex;
+   justify-content: space-between;
+   font-size: 16px; /* Buton metin boyutu */
+   align-items: center;
+   padding: 20px;
+   background: linear-gradient(90deg, #FFFFFF, #57AAFF, rgb(104, 71, 40, 0.41));
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   z-index: 9999;
+}
+a{
+ color:#000000;
+ font-size:30px;
+ text-decoration: none;
+ font-family: Arial, sans-serif;
+}
+.header-title h1 {
+   margin: 0;
+   font-size: 24px;
+   font-weight: bold;
+   color: #3d3d3d; 
+   font-family: Arial, sans-serif;
+}
+
+.header-links nav ul {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+}
+
+.header-links nav ul li {
+   display: inline;
+}
+
+.header-links nav ul li a {
+   display: inline-block;
+   padding: 10px;
+   text-decoration: none;
+   color: #042a5e;
+}
+
+.header-links nav ul li a:hover {
+   background-color: #ddd;
+   border-radius: 5px;
+}
+
+
+.welcome-to-our-website {
+ position: absolute;
+ top: 35%; 
+ left: 50%; 
+ transform: translate(-50%, -50%);
+ overflow-wrap: break-word;
+ font-family: Arial, sans-serif;
+ font-weight: 400;
+ font-size: 3.0rem;
+ color: rgba(0, 0, 0, 0.78);
+}
+
+.make-a-donation {
+ overflow-wrap: break-word;
+ font-family: Arial, sans-serif;
+ font-weight: 400;
+ font-size: 2rem;
+ color: #F5F5F5;
+ 
+}
+.group-1 {
+ 
+ background: linear-gradient(90deg, #FFFFFF, #57AAFF, rgba(104, 71, 40, 0.41));
+ position: absolute;
+ left: 50%;
+ top: 0rem;
+ translate: -50% 0;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ padding: 0 1rem 2.1rem 1.1rem;
+ box-sizing: border-box;
+ width: 100%;
+
+}
+
+
+.donate-button {
+ box-shadow: inset 0.3rem 0.3rem 0.3rem 0rem rgba(0, 0, 0, 0.3);
+ border-radius: 1.3rem;
+ background: rgba(104, 71, 40, 0.53);
+ position: absolute;
+ top: calc(50% + 27.3rem); 
+ left: 50%; 
+ transform: translate(-50%, -50%); 
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ padding: 1.4rem 0.3rem 0.7rem 0;
+ width: 22.3rem;
+ box-sizing: border-box;
+ 
+}
+
+
+.soz {
+ text-align: center;
+ overflow-wrap: break-word;
+ font-family: Arial, sans-serif;
+ font-weight: 400;
+ font-size: 2rem;
+ color: #000000;
+ margin-top: 15px;
+}
+
+
+.group-2,
+.group-3 {
+ border-radius: 1.3rem;
+ background: rgba(87, 170, 255, 0.7);
+ position: absolute;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ padding: 1.9rem 0.1rem 1rem 0.1rem;
+ width: 36.7rem;
+ box-sizing: border-box;
+ font-size: 2rem;
+}
+
+.group-2 {
+ top: calc(50% + 6rem); 
+ left: calc(50% - 20rem); 
+ transform: translateX(-50%); 
+}
+
+.group-3 {
+ top: calc(50% + 6rem); /* Donate buttonun altında */
+ left: calc(50% + 20rem); 
+ transform: translateX(-50%); 
+}
+.image-1 {
+ opacity: 1;
+
+ background: url('./images/charity.png') 10% / cover no-repeat;
+ position: absolute;
+ left: 0rem;
+ top: 0rem;
+ right: 0rem;
+ height: 100%;
+ background-size: cover;
+}
+
+
+.thanks{
+
+ text-align: center;
+ overflow-wrap: break-word;
+ font-family: Arial, sans-serif;
+ font-weight: 400;
+ font-size: 1.4rem;
+ color: #000000;
+ margin-bottom:10px;
+}
+.group-6 {
+ margin-top: 270px;
+ border-radius: 1.3rem;
+ background: rgba(104, 71, 40, 0.15);
+ position: absolute;
+ left: 50%;
+ translate: -50% 0;
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
+ padding: 4.0rem 2.7rem 3.7rem 4.0rem;
+ box-sizing: border-box;
+ top: calc(50% + 15rem); /* Grup 2'nin altında */
+}
+.bahar{
+ position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background: linear-gradient(90deg, #FFFFFF, #57AAFF, rgba(104, 71, 40, 0.41));
+   color: white;
+   text-align: center;
+ top:  20 px; /* Grup 2'nin altında */
+  color: #000000;
+  padding: 20px; /* Yükseklik arttırıldı */
+   font-size: 18px; /* Yazı boyutu arttırıldı */
+   z-index: 9999; /* Diğer öğelerin üzerinde olmasını sağlar */
+   font-family: Arial, sans-serif;
+ 
+}

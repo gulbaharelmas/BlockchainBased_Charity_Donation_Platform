@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="compaigns.css" />
+    <link rel="stylesheet" href="home.css">
+    <script src="compaigns.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <link rel="icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <script type="module" src="c2.js" defer></script>
+    <script src="walletIntegration.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.5/dist/ethers.min.js"></script>
+    <script type="module" src="donation.js"></script>
+    <script type="module">
+        import { connectWalletAndDonate } from "./c2.js";
+        // Bağış yapma fonksiyonunu çağırmak için düğmeye tıklanma olayını dinleyin
+        document.getElementById("donateButton2").addEventListener("click", connectWalletAndDonate);
+    </script>
+    <title>WWF</title>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <h1> <img src="/images/blockchainlogo.png" alt="" width="200" style="margin-left: 20px;"></h1>
+        </div>
+        <div class="header-links">
+            <nav>
+                <ul>
+                    <li><a href="homepage.html">Home</a></li>
+                    <li><a href="compaigns.html">Campaigns</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="c2" id="c2">
+        <div>
+            <h3>Organization:</h3>
+            <a href="https://www.worldwildlife.org/">Word Wildlife</a>
+        </div>
+        <h1>Company Name: Give an Hour for Earth </h1>
+        <img src="https://c.files.bbci.co.uk/A1FC/production/_105886414_mediaitem105886410.jpg" width="100%" height="100%" />
+
+        <h2>Description of company:</h2>
+        <p>Nature provides the air we breathe, the water we drink, and countless other vital resources. But the future of nature is uncertain; we're losing forests, wildlife, freshwater, and more at an unprecedented rate. While it’s easy to feel overwhelmed by these issues, we have the power to make a change.
+
+            Whether you take part in one of the many Hour Bank activities or join landmarks across the globe in turning off your lights in celebration of Earth Hour like the Empire State Building and the Colosseum, you can help the US reach our goal of more than 100,000 hours given for Earth by Earth Day, April 22, 2024. </p>
+       
+        <div class="progressbar-text">GOAL ! <span id="c2-progress-text">%</span></div>
+        <div>
+            <svg id="c2-progress-bar" viewBox="0 0 100 2" preserveAspectRatio="none" style="display: block; width: 100%;">
+                <path id="background" d="M 0,1 L 100,1" stroke="#1F1F1F" stroke-width="2" fill-opacity="0"></path>
+                <path id="c2-progress" d="M 0,1 L 100,1" stroke="#6FCF97" stroke-width="2" fill-opacity="0" style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+            </svg>
+        </div>
+        <div class="text-light">
+            <span id="c2-goalAndRaised"> </span>
+        </div>
+
+        <div class="buttonContainer">
+            <div class="donateButton"> 
+                <button id="donateButton2">Donate</button>   
+
+            </div>
+            <div class="viewButton">
+             <button onclick="redirectToComp1()">View</button>   
+            </div>
+            
+        </div>
+        
+        <div class="socialMedia">
+            <label><ion-icon name="share-social-outline"></ion-icon>Share This Project</label>
+            <div class="socialMediaContainer">
+                <a href="https://www.facebook.com/?locale=tr_TR"
+                 ><ion-icon name="logo-facebook"></ion-icon
+                ></a>
+                <a href="https://twitter.com/login?lang=tr"
+                    ><ion-icon name="logo-twitter"></ion-icon
+                ></a>
+                <a href="https://www.instagram.com/"
+                    ><ion-icon name="logo-instagram"></ion-icon
+                ></a>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="info">
+        <div class="about">
+            <h3>About Word Wildlife</h3>
+            <p><h4>Who we are</h4>
+                All around the world, people are waking up to the deepening crisis of nature loss. We’re experiencing a growing realization that nature is our life-support system and that no one will be spared from the impacts of its loss. 
+                
+                 
+                Here at WWF, an independent conservation organization active in nearly 100 countries, we are working to sustain the natural world for the benefit of people and wildlife.  
+                
+                 
+                We are part of a growing coalition calling on world leaders to set nature on the path to recovery by 2030 – a New Deal for Nature and People as comprehensive as the global climate deal. 
+                
+                Working with many others – from individuals and communities to business and government – WWF urgently seeks to protect and restore natural habitats, stop the mass extinction of wildlife, and make the way we produce and consume sustainable. 
+                
+                <h4>Our mission</h4>
+                To stop the degradation of the earth’s natural environment and to build a future in which humans live in harmony with nature by:
+                
+                conserving the world’s biological diversity
+                ensuring that the use of renewable natural resources is sustainable
+                promoting the reduction of pollution and wasteful consumption.
+                
+                <h4>How we work</h4>
+                The deepening crisis of nature loss requires conservation organizations like WWF to think and act bigger and faster – and to work together as never before.
+                
+                 
+                
+                Our strong commitment to collaboration– something we call together possible – shapes all our work, leading to many powerful partnerships around the world. And, today, we are part of a growing global coalition calling on world leaders to set nature on the path to recovery by 2030: a New Deal for Nature and People as comprehensive as the global climate deal.
+                
+                 
+                
+                This ambitious nature recovery plan is supported by our own global goals and programme of work focused on: 
+                
+                 
+                
+                Safeguarding the natural world – the oceans, forests, freshwater and rich diversity of wildlife that provide the essentials of life for all. 
+                 
+                
+                Challenging the two most urgent threats to nature: climate change and food production. 
+                 
+                
+                Tackling  the underlying global drivers for the loss of nature: a financial system that must value nature; a governance system that empowers people to lead on nature protection; and markets where sustainable production and consumption must become the norm. </p>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387046.8973087242!2d-74.25908647736679!3d40.69766371264854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1649891200081!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+
+    <section class="transaction">
+        <h2 class="transaction-category">Top Donations</h2>
+        <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
+        <section class="transaction-container">
+            <!-- Top donations için burada kartlar olacak -->
+        </section>
+    </section>
+    <section>
+        <h2 class="Total">Total Donations</h2>
+        <div id="veriListesi"></div>
+    </section>
+
+    <script src="demo2.js"></script>
+
+          <!-- Ionicons ikonları için gerekli script -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <footer class="bahar">GreenPeace | World Heald Organization | World Wide Fund For Nature | Unicef</footer>
+</body>
+</html>

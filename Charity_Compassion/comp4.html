@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="compaigns.css" />
+    <link rel="stylesheet" href="home.css">
+    <script src="compaigns.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <link rel="icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <script type="module" src="c4.js" defer></script>
+    <script src="demo4.js"></script>
+    <script src="walletIntegration.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.5/dist/ethers.min.js"></script>
+    <script type="module" src="donation.js"></script>
+    <script type="module">
+        import { connectWalletAndDonate } from "./c4.js";
+        // Bağış yapma fonksiyonunu çağırmak için düğmeye tıklanma olayını dinleyin
+        document.getElementById("donateButton4").addEventListener("click", connectWalletAndDonate);
+    </script>
+    <title>Greenpeace</title>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <h1> <img src="/images/blockchainlogo.png" alt="" width="200" style="margin-left: 20px;"></h1>
+        </div>
+        <div class="header-links">
+            <nav>
+                <ul>
+                    <li><a href="homepage.html">Home</a></li>
+                    <li><a href="compaigns.html">Campaigns</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="c4" id="c4">
+        <div>
+            <h3>Organization:</h3>
+            <a href="https://www.greenpeace.org/international/">Greenpeace</a>
+        </div>
+        <h1>Company Name: Help Greenpeace protect the planet </h1>
+        <img src="https://www.greenpeace.org/turkey/wp-content/themes/planet4-master-theme/images/Greenpeace-logo.png" width="100%" height="100%" />
+
+        <h2>Description of company:</h2>
+        <p>Imagine a world where forests flourish and oceans are full of life. Where energy is as clean as a mountain stream. Where everyone has security, dignity and joy. We can’t build this future alone, but we can build it together.
+            For more than 50 years, Greenpeace has been sailing the world’s oceans protecting our planet and fighting for environmental justice. </p>
+        
+        <div class="progressbar-text">GOAL ! <span id="c4-progress-text">%</span></div>
+        <div>
+            <svg id="c4-progress-bar" viewBox="0 0 100 2" preserveAspectRatio="none" style="display: block; width: 100%;">
+                <path id="background" d="M 0,1 L 100,1" stroke="#1F1F1F" stroke-width="2" fill-opacity="0"></path>
+                <path id="c4-progress" d="M 0,1 L 100,1" stroke="#6FCF97" stroke-width="2" fill-opacity="0" style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+            </svg>
+        </div>
+        <div class="text-light">
+            <span id="c4-goalAndRaised"> </span>
+        </div>
+        <div class="buttonContainer">
+            <div class="donateButton"> 
+                <button id="donateButton4">Donate</button>   
+
+            </div>
+            <div class="viewButton">
+             <button onclick="redirectToComp1()">View</button>   
+            </div>
+            
+        </div>
+
+        <div class="socialMedia">
+            <label><ion-icon name="share-social-outline"></ion-icon>Share This Project</label>
+            <div class="socialMediaContainer">
+                <a href="https://www.facebook.com/?locale=tr_TR"
+                 ><ion-icon name="logo-facebook"></ion-icon
+                ></a>
+                <a href="https://twitter.com/login?lang=tr"
+                    ><ion-icon name="logo-twitter"></ion-icon
+                ></a>
+                <a href="https://www.instagram.com/"
+                    ><ion-icon name="logo-instagram"></ion-icon
+                ></a>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="info">
+        <div class="about">
+            <h3>About Greenpeace</h3>
+            <p>
+                <h4>A green and peaceful future is our quest</h4>
+                Greenpeace exists because this fragile earth deserves a voice.
+                
+                Some people look at a forest, and all they see is lumber. But there are millions more who see a home, a heritage, a future. Around the globe, we are standing up for our communities, and we are holding governments and corporations accountable.
+                
+                <h4>Our vision</h4>
+                We believe optimism is a form of courage. We believe that a billion acts of courage can spark a brighter tomorrow. To that end we model courage, we champion courage, we share stories of courageous acts by our supporters and allies, we invite people out of their comfort zones to take courageous action with us, individually in their daily lives, and in community with others who share our commitment to a better world. A green and peaceful future is our quest. The heroes of our story are all of us who believe that a better world is not only within reach, but being built today.  </p>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d203531.4354932577!2d10.722084153622098!3d59.9138686407694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46416dc059ba712b%3A0x7fcb6e16b6d87ed4!2sOslo%2C%20Norway!5e0!3m2!1sen!2sus!4v1649889580223!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section class="transaction">
+        <h2 class="transaction-category">Top Donations</h2>
+        <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
+        <section class="transaction-container">
+            <!-- Top donations için burada kartlar olacak -->
+        </section>
+    </section>
+    <section>
+        <h2 class="Total">Total Donations</h2>
+        <div id="veriListesi"></div>
+    </section>
+
+    
+
+            <!-- Ionicons ikonları için gerekli script -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <footer class="bahar">GreenPeace | World Heald Organization | World Wide Fund For Nature | Unicef</footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+body{
+    font-family: Arial, sans-serif;
+}
+
+#progress-bar {
+    width: 100%; /* İsteğe bağlı: SVG'nin genişliğini belirtin */
+}
+
+.c1,.c2,.c3,.c4{
+    margin:2%;
+    padding: 2%;
+    border:1px solid black;
+    border-radius: 25px;
+    margin-top: 8%;
+}
+
+.companies1{
+    margin:5%;
+    padding:5%;
+    font-family: Arial, sans-serif;
+}
+
+.companies{
+
+    font-family: Arial, sans-serif;
+}
+
+.donateButton{
+    margin:10px;
+    padding:10px 20px;
+}
+.donateButton button {
+    padding: 10px 20px; /* Yükseklik ve genişlik için padding kullanabilirsiniz */
+    font-size: 16px; /* Metin boyutunu ayarlayın */
+}
+.viewButton{
+    margin:10px;
+    padding:10px 20px;
+}
+.viewButton button {
+    padding: 10px 20px; /* Yükseklik ve genişlik için padding kullanabilirsiniz */
+    font-size: 16px; /* Metin boyutunu ayarlayın */
+}
+.buttonContainer {
+    display: flex; /* Flexbox'u etkinleştir */
+    align-items: center; /* İçerikleri dikey olarak hizala */
+}
+a{
+    color:#549c72;
+    font-size:30px;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline; /* Bağlantı üzerine gelindiğinde alt çizgi ekleme */
+}
+
+button {
+    margin:20px;
+    padding:10px;
+    padding: 10px 20px; /* Butonların dolgusu */
+    font-size: 16px; /* Buton metin boyutu */
+    background-color: #6FCF97; /* Buton arka plan rengi */
+    color: #fff; /* Buton metin rengi */
+    border: none; /* Buton kenarlık yok */
+    cursor: pointer; /* Buton üzerine gelindiğinde imleç tipi */
+    border-radius: 4px; /* Buton kenar yuvarlama */
+}
+
+button:hover {
+    background-color: #549c72; /* Buton üzerine gelindiğinde arka plan rengi */
+}
+
+.info{
+    display: flex; 
+    justify-content: space-between;
+    margin:1%;
+    padding:1%;
+}
+.about{
+    margin-right: 20px; /* Sağ tarafta bir boşluk bırak */
+    padding: 20px; /* İçeriğin etrafında bir iç boşluk bırak */
+    background-color: #f9f9f9; /* Arka plan rengini ayarla */
+    border-radius: 5px;
+}
+.progressbar-text{
+    color: rgb(111, 207, 151);
+    right: 0px;
+    top: -30px; 
+    padding: 0px; 
+    margin: 0px;
+}
+.campaign-list {
+    display: flex;
+}
+
+.admin-form {
+    flex: 1;
+    margin-right: 20px; /* Form ile mevcut kampanyalar arasında boşluk bırakmak için */
+}
+
+.current-campaigns {
+    flex: 1;
+}
+

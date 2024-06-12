@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="compaigns.css" />
+    <link rel="stylesheet" href="home.css">
+    <script src="compaigns.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="demo.css">
+    <link rel="icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./images/blockchainfavico.ico" type="image/x-icon">
+    <script type="module" src="c3.js" defer></script>
+    <script src="walletIntegration.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.5/dist/ethers.min.js"></script>
+    <script type="module" src="donation.js"></script>
+    <script type="module">
+        import { connectWalletAndDonate } from "./c3.js";
+        // Bağış yapma fonksiyonunu çağırmak için düğmeye tıklanma olayını dinleyin
+        document.getElementById("donateButton3").addEventListener("click", connectWalletAndDonate);
+    </script>
+    <title>WHO</title>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <h1> <img src="/images/blockchainlogo.png" alt="" width="200" style="margin-left: 20px;"></h1>
+        </div>
+        <div class="header-links">
+            <nav>
+                <ul>
+                    <li><a href="homepage.html">Home</a></li>
+                    <li><a href="compaigns.html">Campaigns</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="c3" id="c3">
+        <div>
+            <h3>Organization:</h3>
+            <a href="https://www.who.int/">WHO (World Health Organization)</a>
+        </div>
+        <h1>Company Name:75 years of improving public health </h1>
+        <img src="https://www.un.org/youthenvoy/wp-content/uploads/2014/09/WHO.jpg" width="100%" height="100%" />
+
+        <h2>Description of company:</h2>
+        <p>On 7 April 2023  ̶  World Health Day  ̶  the World Health Organization will observe its 75th anniversary.
+
+            In 1948, countries of the world came together and founded WHO to promote health, keep the world safe and serve the vulnerable – so everyone, everywhere can attain the highest level of health and well-being.   
+            
+            WHO’s 75th anniversary year is an opportunity to look back at public health successes that have improved quality of life during the last seven decades. It is also an opportunity to motivate action to tackle the health challenges of today  ̶  and tomorrow.  
+            
+            Join WHO on a journey to achieve Health For All.
+            
+            #HealthForAll   #WHO75</p>
+
+        <div class="progressbar-text">GOAL ! <span id="c3-progress-text">%</span></div>
+        <div>
+            <svg id="c3-progress-bar" viewBox="0 0 100 2" preserveAspectRatio="none" style="display: block; width: 100%;">
+                <path id="background" d="M 0,1 L 100,1" stroke="#1F1F1F" stroke-width="2" fill-opacity="0"></path>
+                <path id="c3-progress" d="M 0,1 L 100,1" stroke="#6FCF97" stroke-width="2" fill-opacity="0" style="stroke-dasharray: 100, 100; stroke-dashoffset: 0;"></path>
+            </svg>
+        </div>
+        <div class="text-light">
+            <span id="c3-goalAndRaised"> </span>
+        </div>
+
+        <div class="buttonContainer">
+            <div class="donateButton"> 
+                <button id="donateButton3">Donate</button>   
+
+            </div>
+            <div class="viewButton">
+             <button onclick="redirectToComp1()">View</button>   
+            </div>
+            
+        </div>
+        
+        <div class="socialMedia">
+            <label><ion-icon name="share-social-outline"></ion-icon>Share This Project</label>
+            <div class="socialMediaContainer">
+                <a href="https://www.facebook.com/?locale=tr_TR"
+                 ><ion-icon name="logo-facebook"></ion-icon
+                ></a>
+                <a href="https://twitter.com/login?lang=tr"
+                    ><ion-icon name="logo-twitter"></ion-icon
+                ></a>
+                <a href="https://www.instagram.com/"
+                    ><ion-icon name="logo-instagram"></ion-icon
+                ></a>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="info">
+        <div class="about">
+            <h3>About WHO</h3>
+            <p>
+           <h4>We champion health and a better future for all</h4> 
+            Dedicated to the well-being of all people and guided by science, the World Health Organization leads and champions global efforts to give everyone, everywhere an equal chance to live a healthy life. 
+            <h4>Who we are</h4>
+            Founded in 1948, WHO is the United Nations agency that connects nations, partners and people to promote health, keep the world safe and serve the vulnerable – so everyone, everywhere can attain the highest level of health. 
+            <h4>What we do</h4>
+            WHO leads global efforts to expand universal health coverage. We direct and coordinate the world’s response to health emergencies. And we promote healthier lives – from pregnancy care through old age. Our Triple Billion targets outline an ambitious plan for the world to achieve good health for all using science-based policies and programmes. 
+            </p>
+              
+       </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d98800412.44667225!2d17.232766105457357!3d-8.78320148110754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1649892957843!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+
+    <section class="transaction">
+        <h2 class="transaction-category">Top Donations</h2>
+        <button class="pre-btn"><img src="images/arrow.png" alt=""></button>
+        <button class="nxt-btn"><img src="images/arrow.png" alt=""></button>
+        <section class="transaction-container">
+            <!-- Top donations için burada kartlar olacak -->
+        </section>
+    </section>
+    <section>
+        <h2 class="Total">Total Donations</h2>
+        <div id="veriListesi"></div>
+    </section>
+
+    <script src="demo3.js"></script>
+
+
+            <!-- Ionicons ikonları için gerekli script -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <footer class="bahar">GreenPeace | World Heald Organization | World Wide Fund For Nature | Unicef</footer>
+</body>
+</html>
